@@ -1,5 +1,7 @@
+import styles from "../styles/DeleteButton.module.css";
+
 const DeleteButton = () => {
-  return <div>DeleteButton</div>;
+  return <div className={styles.deleteIcon}></div>;
 };
 
 export default DeleteButton;

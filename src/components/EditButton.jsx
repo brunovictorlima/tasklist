@@ -1,5 +1,7 @@
+import styles from "../styles/EditButton.module.css";
+
 const EditButton = () => {
-  return <div>EditButton</div>;
+  return <div className={styles.editIcon}></div>;
 };
 
 export default EditButton;

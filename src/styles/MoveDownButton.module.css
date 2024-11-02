@@ -1,0 +1,17 @@
+.downIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+
+  background-color: var(--black);
+  background-image: url("../icons/down.svg");
+
+  cursor: pointer;
+}
+
+.downIcon:hover {
+  background-color: var(--darkgray);
+}

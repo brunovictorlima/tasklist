@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--darkgray);
+  color: var(--white);
+  font-family: "Roboto", serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  flex-wrap: wrap;
+
+  gap: 1.2rem;
+}

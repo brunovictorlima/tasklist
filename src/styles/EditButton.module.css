@@ -1,0 +1,17 @@
+.editIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+
+  background-color: var(--blue);
+  background-image: url("../icons/edit.svg");
+
+  cursor: pointer;
+}
+
+.editIcon:hover {
+  background-color: var(--darkblue);
+}
