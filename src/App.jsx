@@ -2,14 +2,14 @@ import styles from "./App.module.css";
 
 import Header from "./components/Header";
 import TaskList from "./components/TaskList";
-import NewTaskButton from "./components/NewTaskButton";
+import SubmitButton from "./components/SubmitButton";
 
 function App() {
   return (
     <div className={styles.container}>
       <Header className={styles.robotoRegular} />
       <TaskList />
-      <NewTaskButton />
+      <SubmitButton name="ADICIONAR TAREFA" />
     </div>
   );
 }

@@ -2,10 +2,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-family: "Poppins", sans-serif;
+}
+
 body {
   background-color: var(--darkgray);
   color: var(--white);
-  font-family: "Roboto", serif;
 }
 
 .container {

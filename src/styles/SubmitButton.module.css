@@ -4,8 +4,9 @@
   background-color: var(--blue);
   border-radius: 12px;
   color: var(--white);
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.3rem;
   line-height: 1.3rem;
   cursor: pointer;
