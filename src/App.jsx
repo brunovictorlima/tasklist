@@ -1,15 +1,29 @@
 import styles from "./App.module.css";
 
+import { useState } from "react";
+
 import Header from "./components/Header";
 import TaskList from "./components/TaskList";
-import SubmitButton from "./components/SubmitButton";
+import Button from "./components/Button";
+import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={styles.container}>
-      <Header className={styles.robotoRegular} />
+      <Header />
       <TaskList />
-      <SubmitButton name="ADICIONAR TAREFA" />
+      <Button name="ADICIONAR TAREFA" type="submit" onClick={openModal} />
+      <AddTaskForm isOpen={isModalOpen} onRequestClose={closeModal} />
     </div>
   );
 }

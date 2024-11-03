@@ -1,0 +1,35 @@
+.submit {
+  width: 170px;
+  height: 70px;
+  background-color: var(--blue);
+  border-radius: 12px;
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  line-height: 1.3rem;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: var(--darkblue);
+}
+
+.cancel {
+  width: 180px;
+  height: 70px;
+  background-color: var(--red);
+  border-radius: 12px;
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  line-height: 1.3rem;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  background-color: var(--darkred);
+}
