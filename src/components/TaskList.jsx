@@ -1,33 +1,74 @@
 import styles from "../styles/TaskList.module.css";
 
-import TaskItem from "./TaskItem";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-const TaskList = () => {
+import TaskItem from "./TaskItem";
+import EditTaskForm from "./EditTaskForm";
+
+const TaskList = ({
+  tasks,
+  updateTask,
+  deleteTask,
+  moveTaskUp,
+  moveTaskDown,
+}) => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [taskToEdit, setTaskToEdit] = useState(null);
+
+  const openEditModal = (task) => {
+    if (!isEditModalOpen) {
+      setTaskToEdit(task);
+      setIsEditModalOpen(true);
+    }
+  };
+
+  const closeEditModal = () => {
+    setTaskToEdit(null);
+    setIsEditModalOpen(false);
+  };
+
   return (
     <div className={styles.list}>
-      <TaskItem
-        title="Criar lógica dos botões"
-        id="77"
-        cost="799,90"
-        order={2}
-        dueDate="02/11"
-      />
-      <TaskItem
-        title="Criar botão para inserir nova tarefa"
-        id="78"
-        cost="100,00"
-        order={1}
-        dueDate="01/11"
-      />
-      <TaskItem
-        title="Adicionar ícone ao lado da data limite"
-        id="79"
-        cost="80,00"
-        order={3}
-        dueDate="03/11"
-      />
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          id={task.id}
+          title={task.title}
+          cost={task.cost}
+          dueDate={task.dueDate}
+          onEdit={() => openEditModal(task)}
+          onDelete={() => deleteTask(task.id)}
+          onMoveUp={() => moveTaskUp(task.id)}
+          onMoveDown={() => moveTaskDown(task.id)}
+        />
+      ))}
+
+      {isEditModalOpen && (
+        <EditTaskForm
+          isOpen={isEditModalOpen}
+          onRequestClose={closeEditModal}
+          task={taskToEdit}
+          updateTask={updateTask}
+        />
+      )}
     </div>
   );
+};
+
+TaskList.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      cost: PropTypes.number,
+      dueDate: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  updateTask: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
+  moveTaskUp: PropTypes.func.isRequired,
+  moveTaskDown: PropTypes.func.isRequired,
 };
 
 export default TaskList;

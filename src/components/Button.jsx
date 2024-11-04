@@ -16,7 +16,7 @@ const Button = ({ name, type, onClick }) => {
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.oneOf(["submit", "cancel"]).isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Button;

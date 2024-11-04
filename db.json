@@ -1,18 +1,25 @@
 {
   "tasks": [
     {
-      "id": 77,
-      "order": 2,
-      "title": "Criar lógica dos botões",
-      "cost": 799.9,
-      "dueDate": "02/11"
+      "id": 1,
+      "title": "teste 22:39",
+      "cost": 100,
+      "dueDate": "2024-11-03",
+      "position": 1
     },
     {
-      "id": 78,
-      "order": 1,
-      "title": "Criar botão para inserir nova tarefa",
-      "cost": 100,
-      "dueDate": "01/11"
+      "id": 2,
+      "title": "teste 22:40",
+      "cost": 22.8,
+      "dueDate": "2024-11-01",
+      "position": 2
+    },
+    {
+      "id": 3,
+      "title": "teste 22:41",
+      "cost": 0,
+      "dueDate": "2024-11-05",
+      "position": 3
     }
   ]
 }

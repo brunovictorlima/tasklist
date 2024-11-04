@@ -1,5 +1,7 @@
 import styles from "../styles/TaskItem.module.css";
+
 import PropTypes from "prop-types";
+
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
 import MoveUpButton from "./MoveUpButton";
@@ -7,7 +9,6 @@ import MoveDownButton from "./MoveDownButton";
 
 const TaskItem = ({
   id,
-  order,
   title,
   cost,
   dueDate,
@@ -23,16 +24,18 @@ const TaskItem = ({
         <div className={styles.details}>
           <span className={styles.id}># {id}</span>
           <span>|</span>
-          <span className={styles.cost}>R$ {cost}</span>
+          <span className={styles.cost}>
+            R$ {cost.toFixed(2).replace(".", ",")}
+          </span>
           <span>|</span>
           <span className={styles.dueDate}>{dueDate}</span>
         </div>
       </div>
       <div className={styles.buttons}>
-        <EditButton />
-        <DeleteButton />
-        <MoveUpButton />
-        <MoveDownButton />
+        <EditButton onClick={onEdit} />
+        <DeleteButton onClick={onDelete} />
+        <MoveUpButton onClick={() => onMoveUp(id)} />
+        <MoveDownButton onClick={() => onMoveDown(id)} />
       </div>
     </div>
   );
@@ -40,7 +43,6 @@ const TaskItem = ({
 
 TaskItem.propTypes = {
   id: PropTypes.number.isRequired,
-  order: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   cost: PropTypes.number,
   dueDate: PropTypes.string.isRequired,
