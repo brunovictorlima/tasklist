@@ -32,7 +32,11 @@ function App() {
       const maxPosition =
         tasks.length > 0 ? Math.max(...tasks.map((task) => task.position)) : 0;
 
-      newTask = { ...newTask, id: maxId + 1, position: maxPosition + 1 };
+      newTask = {
+        ...newTask,
+        id: String(maxId + 1),
+        position: maxPosition + 1,
+      };
 
       const response = await api.post("/tasks", newTask);
       setTasks((prevTasks) => [...prevTasks, response.data]);

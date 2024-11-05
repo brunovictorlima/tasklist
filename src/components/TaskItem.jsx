@@ -1,11 +1,13 @@
 import styles from "../styles/TaskItem.module.css";
 
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
 import MoveUpButton from "./MoveUpButton";
 import MoveDownButton from "./MoveDownButton";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 const TaskItem = ({
   id,
@@ -17,9 +19,33 @@ const TaskItem = ({
   onMoveUp,
   onMoveDown,
 }) => {
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-");
+    return `${day}/${month}/${year}`;
+  };
+
+  const itemStyle = {
+    backgroundColor: cost >= 1000 ? "#e6d600" : "#474747",
+  };
+
+  const customTextColor = {
+    color: cost >= 1000 ? "#222222" : "#ffffff",
+  };
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+  const handleDeleteClick = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = () => {
+    onDelete(id);
+    setIsDeleteModalOpen(false);
+  };
+
   return (
-    <div className={styles.item}>
-      <div className={styles.infos}>
+    <div className={styles.item} style={itemStyle}>
+      <div className={styles.infos} style={customTextColor}>
         <span className={styles.title}>{title}</span>
         <div className={styles.details}>
           <span className={styles.id}># {id}</span>
@@ -28,21 +54,27 @@ const TaskItem = ({
             R$ {cost.toFixed(2).replace(".", ",")}
           </span>
           <span>|</span>
-          <span className={styles.dueDate}>{dueDate}</span>
+          <span className={styles.dueDate}>{formatDate(dueDate)}</span>
         </div>
       </div>
       <div className={styles.buttons}>
         <EditButton onClick={onEdit} />
-        <DeleteButton onClick={onDelete} />
+        <DeleteButton onClick={handleDeleteClick} />
         <MoveUpButton onClick={() => onMoveUp(id)} />
         <MoveDownButton onClick={() => onMoveDown(id)} />
       </div>
+
+      <DeleteConfirmation
+        isOpen={isDeleteModalOpen}
+        onRequestClose={() => setIsDeleteModalOpen(false)}
+        onDelete={confirmDelete}
+      />
     </div>
   );
 };
 
 TaskItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cost: PropTypes.number,
   dueDate: PropTypes.string.isRequired,

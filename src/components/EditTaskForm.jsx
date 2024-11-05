@@ -94,7 +94,7 @@ EditTaskForm.propTypes = {
   onRequestClose: PropTypes.func.isRequired,
   updateTask: PropTypes.func.isRequired,
   task: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     position: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     cost: PropTypes.number,

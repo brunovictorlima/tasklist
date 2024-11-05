@@ -1,0 +1,38 @@
+REQUISITOS FUNCIONAIS:
+
+[x] - EDIÇÃO: Criar uma popup para edição dos três campos (title, cost, dueDate).
+
+[x] - INCLUSÃO: Apenas os campos "Nome da Tarefa", "Custo" e "Data Limite" são informados pelo usuário.
+
+[x] - Só é possível alterar o "Nome da Tarefa", o "Custo" e a "Data Limite".	
+
+[x] - Em cada linha (registro) deve ter dois botões, uma para "subir" a tarefa na ordem de apresentação e outro para "descer".
+
+[x] - A variável order não pode ser repetida.
+
+[x] - As tarefas devem ser apresentadas ordenadas pelo campo "Ordem de apresentação".
+
+[x] - Os demais campos são gerados automaticamente pelo sistema.
+
+[x] - O registro recém-criado será o último na ordem de apresentação.
+
+[x] - Adaptar a lista para gerar uma barra de rolagem dentro do componente TaskList, carregando vários itens.
+
+[x] - A tarefa que tiver o "Custo" maior ou igual a R$1.000,00 deverá ser apresentada de forma diferente (por exemplo: a linha inteira com o fundo amarelo).
+
+[x] - É necessário apresentar uma mensagem de confirmação (Sim/Não) para a realização da exclusão.
+
+----------------
+
+[ ] - O id da tarefa deve ser uma chave primária.
+
+[ ] - É necessário verificar se o NOVO NOME da tarefa já existe na base de dados. Se já existir, a alteração não poderá ser feita.
+
+[ ] - Não pode haver duas tarefas com o mesmo nome.
+
+[ ] - A primeira tarefa não poderá "subir" e nem a última poderá "descer".
+
+[ ] - Com o uso do mouse, o usuário arrasta uma tarefa para cima ou para baixo, soltando na posição desejada. Estilo drag-and-drop.
+
+
+

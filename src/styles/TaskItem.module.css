@@ -42,3 +42,18 @@
   flex-direction: row;
   gap: 1rem;
 }
+
+@media (min-width: 768px) {
+  .item {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .infos {
+    width: 80%;
+  }
+
+  .buttons {
+    width: auto;
+  }
+}

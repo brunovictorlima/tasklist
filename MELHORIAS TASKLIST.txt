@@ -1,0 +1,10 @@
+MELHORIAS:
+
+[ ] - Adicionar ao App.jsx uma resposta em caso de falha no carregamento da lista de tarefas.
+
+[ ] - Formatar a hora de acordo com o padrão BR.
+
+[ ] - Adicionar ícone de alarme no campo de data limite.
+
+
+
