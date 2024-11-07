@@ -1,7 +1,12 @@
 import styles from "../styles/MoveUpButton.module.css";
+import PropTypes from "prop-types";
 
-const MoveUpButton = () => {
-  return <div className={styles.upIcon}></div>;
+const MoveUpButton = ({ onClick }) => {
+  return <div className={styles.upIcon} onClick={onClick}></div>;
+};
+
+MoveUpButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MoveUpButton;

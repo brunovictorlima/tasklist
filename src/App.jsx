@@ -27,14 +27,23 @@ function App() {
 
   const addTask = async (newTask) => {
     try {
-      const maxId =
-        tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) : 0;
+      const isDuplicate = tasks.some(
+        (task) => task.title.toLowerCase() === newTask.title.toLowerCase()
+      );
+
+      if (isDuplicate) {
+        alert("Já existe uma tarefa com este nome.");
+        return;
+      }
+
       const maxPosition =
         tasks.length > 0 ? Math.max(...tasks.map((task) => task.position)) : 0;
 
       newTask = {
         ...newTask,
-        id: String(maxId + 1),
+        id: String(
+          tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) + 1 : 1
+        ),
         position: maxPosition + 1,
       };
 
@@ -47,6 +56,17 @@ function App() {
 
   const updateTask = async (updatedTask) => {
     try {
+      const isDuplicate = tasks.some(
+        (task) =>
+          task.id !== updatedTask.id &&
+          task.title.toLowerCase() === updatedTask.title.toLowerCase()
+      );
+
+      if (isDuplicate) {
+        alert("Já existe uma tarefa com este nome.");
+        return;
+      }
+
       const response = await api.put(`/tasks/${updatedTask.id}`, updatedTask);
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
@@ -65,60 +85,31 @@ function App() {
 
       await api.delete(`/tasks/${taskId}`);
 
-      setTasks((prevTasks) =>
-        prevTasks
+      setTasks((prevTasks) => {
+        const updatedTasks = prevTasks
           .filter((task) => task.id !== taskId)
-          .map((task) => ({
+          .map((task, index) => ({
             ...task,
-            position:
-              task.position > taskToDelete.position
-                ? task.position - 1
-                : task.position,
-          }))
-      );
+            position: index + 1,
+          }));
+
+        updatedTasks.forEach(async (task) => {
+          await api.put(`/tasks/${task.id}`, {
+            ...task,
+            position: task.position,
+          });
+        });
+
+        return updatedTasks;
+      });
     } catch (error) {
       console.error("Erro ao excluir tarefa:", error);
     }
   };
 
-  const moveTaskUp = (id) => {
-    setTasks((prevTasks) => {
-      const tasksCopy = [...prevTasks];
+  const moveTaskUp = async () => {};
 
-      const index = tasksCopy.findIndex((task) => task.id === id);
-      if (index === -1 || tasksCopy[index].position === 1) return prevTasks;
-
-      const previousTask = tasksCopy.find(
-        (task) => task.position === tasksCopy[index].position - 1
-      );
-      if (previousTask) {
-        const currentTaskPosition = tasksCopy[index].position;
-        tasksCopy[index].position = previousTask.position;
-        previousTask.position = currentTaskPosition;
-      }
-      return tasksCopy.sort((a, b) => a.position - b.position);
-    });
-  };
-
-  const moveTaskDown = (id) => {
-    setTasks((prevTasks) => {
-      const tasksCopy = [...prevTasks];
-
-      const index = tasksCopy.findIndex((task) => task.id === id);
-      if (index === -1 || tasksCopy[index].position === tasksCopy.length)
-        return prevTasks;
-
-      const nextTask = tasksCopy.find(
-        (task) => task.position === tasksCopy[index].position + 1
-      );
-      if (nextTask) {
-        const currentTaskPosition = tasksCopy[index].position;
-        tasksCopy[index].position = nextTask.position;
-        nextTask.position = currentTaskPosition;
-      }
-      return tasksCopy.sort((a, b) => a.position - b.position);
-    });
-  };
+  const moveTaskDown = () => {};
 
   const openModal = () => {
     setIsModalOpen(true);

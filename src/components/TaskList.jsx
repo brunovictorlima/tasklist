@@ -1,6 +1,6 @@
 import styles from "../styles/TaskList.module.css";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 
 import TaskItem from "./TaskItem";
@@ -28,21 +28,31 @@ const TaskList = ({
     setIsEditModalOpen(false);
   };
 
+  const handleMoveUpClick = useCallback(
+    (id) => {
+      moveTaskUp(id);
+    },
+    [moveTaskUp]
+  );
+
   return (
     <div className={styles.list}>
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          id={task.id}
-          title={task.title}
-          cost={task.cost}
-          dueDate={task.dueDate}
-          onEdit={() => openEditModal(task)}
-          onDelete={() => deleteTask(task.id)}
-          onMoveUp={() => moveTaskUp(task.id)}
-          onMoveDown={() => moveTaskDown(task.id)}
-        />
-      ))}
+      {tasks
+        .slice()
+        .sort((a, b) => a.position - b.position)
+        .map((task) => (
+          <TaskItem
+            key={task.id}
+            id={task.id}
+            title={task.title}
+            cost={task.cost}
+            dueDate={task.dueDate}
+            onEdit={() => openEditModal(task)}
+            onDelete={() => deleteTask(task.id)}
+            onMoveUp={() => handleMoveUpClick(task.id)}
+            onMoveDown={() => moveTaskDown(task.id)}
+          />
+        ))}
 
       {isEditModalOpen && (
         <EditTaskForm

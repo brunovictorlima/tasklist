@@ -1,39 +1,53 @@
 {
   "tasks": [
     {
+      "id": "1",
+      "title": "tarefa 1",
+      "cost": 1,
+      "dueDate": "2024-10-30",
+      "position": 1
+    },
+    {
       "id": "2",
-      "title": "teste 22:40 (testando correção de warning 21:04) e quebra de linha",
-      "cost": 22.8,
-      "dueDate": "2024-11-01",
+      "title": "tarefa 2",
+      "cost": 1,
+      "dueDate": "2024-10-30",
       "position": 2
     },
     {
       "id": "3",
-      "title": "teste 22:41 (atualizada 21:02)",
-      "cost": 0,
-      "dueDate": "2024-11-04",
+      "title": "tarefa 3",
+      "cost": 1,
+      "dueDate": "2024-11-06",
       "position": 3
     },
     {
       "id": "4",
-      "title": "teste de adição de tarefa 21:02",
-      "cost": 20,
-      "dueDate": "2024-10-28",
+      "title": "tarefa 4",
+      "cost": 1,
+      "dueDate": "2024-11-06",
       "position": 4
     },
     {
       "id": "5",
-      "title": "exclusão funcionando =D",
-      "cost": 1,
-      "dueDate": "2024-11-03",
+      "title": "tarefa 5",
+      "cost": 0,
+      "dueDate": "2024-11-07",
       "position": 5
     },
     {
       "id": "6",
-      "title": "teste de custo acima de 1000",
-      "cost": 1000,
-      "dueDate": "2024-11-04",
+      "title": "tarefa 6",
+      "cost": 6,
+      "dueDate": "2024-11-08",
       "position": 6
+    },
+    {
+      "id": "7",
+      "title": "tarefa 7",
+      "cost": 10,
+      "dueDate": "2024-11-07",
+      "position": 7
     }
   ]
 }

@@ -43,6 +43,8 @@ const TaskItem = ({
     setIsDeleteModalOpen(false);
   };
 
+  const handleMoveUpClick = () => onMoveUp(id);
+
   return (
     <div className={styles.item} style={itemStyle}>
       <div className={styles.infos} style={customTextColor}>
@@ -60,7 +62,7 @@ const TaskItem = ({
       <div className={styles.buttons}>
         <EditButton onClick={onEdit} />
         <DeleteButton onClick={handleDeleteClick} />
-        <MoveUpButton onClick={() => onMoveUp(id)} />
+        <MoveUpButton onClick={handleMoveUpClick} />
         <MoveDownButton onClick={() => onMoveDown(id)} />
       </div>
 
