@@ -6,7 +6,7 @@ const MoveUpButton = ({ onClick }) => {
 };
 
 MoveUpButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default MoveUpButton;

@@ -32,6 +32,10 @@ const TaskItem = ({
     color: cost >= 1000 ? "#222222" : "#ffffff",
   };
 
+  const customIconColor = {
+    backgroundColor: cost >= 1000 ? "#222222" : "#ffffff",
+  };
+
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleDeleteClick = () => {
@@ -45,6 +49,8 @@ const TaskItem = ({
 
   const handleMoveUpClick = () => onMoveUp(id);
 
+  const handleMoveDownClick = () => onMoveDown(id);
+
   return (
     <div className={styles.item} style={itemStyle}>
       <div className={styles.infos} style={customTextColor}>
@@ -56,14 +62,17 @@ const TaskItem = ({
             R$ {cost.toFixed(2).replace(".", ",")}
           </span>
           <span>|</span>
-          <span className={styles.dueDate}>{formatDate(dueDate)}</span>
+          <div className={styles.dueDateBox}>
+            <div className={styles.alarmIcon} style={customIconColor}></div>
+            <span className={styles.dueDate}>{formatDate(dueDate)}</span>
+          </div>
         </div>
       </div>
       <div className={styles.buttons}>
         <EditButton onClick={onEdit} />
         <DeleteButton onClick={handleDeleteClick} />
         <MoveUpButton onClick={handleMoveUpClick} />
-        <MoveDownButton onClick={() => onMoveDown(id)} />
+        <MoveDownButton onClick={handleMoveDownClick} />
       </div>
 
       <DeleteConfirmation

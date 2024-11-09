@@ -6,7 +6,7 @@ const MoveDownButton = ({ onClick }) => {
 };
 
 MoveDownButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default MoveDownButton;

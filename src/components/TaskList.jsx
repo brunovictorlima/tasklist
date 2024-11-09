@@ -35,6 +35,13 @@ const TaskList = ({
     [moveTaskUp]
   );
 
+  const handleMoveDownClick = useCallback(
+    (id) => {
+      moveTaskDown(id);
+    },
+    [moveTaskDown]
+  );
+
   return (
     <div className={styles.list}>
       {tasks
@@ -50,7 +57,7 @@ const TaskList = ({
             onEdit={() => openEditModal(task)}
             onDelete={() => deleteTask(task.id)}
             onMoveUp={() => handleMoveUpClick(task.id)}
-            onMoveDown={() => moveTaskDown(task.id)}
+            onMoveDown={() => handleMoveDownClick(task.id)}
           />
         ))}
 
@@ -77,8 +84,8 @@ TaskList.propTypes = {
   ).isRequired,
   updateTask: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
-  moveTaskUp: PropTypes.func.isRequired,
-  moveTaskDown: PropTypes.func.isRequired,
+  moveTaskUp: PropTypes.func,
+  moveTaskDown: PropTypes.func,
 };
 
 export default TaskList;
