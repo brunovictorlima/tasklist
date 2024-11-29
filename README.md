@@ -1,8 +1,25 @@
-# React + Vite
+# TaskList #
+## Esta aplicação permite aos usuários criar, visualizar, editar e deletar tarefas. ##
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Tecnologias Utilizadas ###
 
-Currently, two official plugins are available:
+### Frontend ###
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React: Biblioteca JavaScript para construir interfaces de usuário.
+React DOM: Pacote para renderização de componentes React no DOM.
+React Router DOM: Biblioteca para roteamento em aplicações React.
+React Modal: Componente para modais em React.
+Prop-types: Verificação de tipos para propriedades de componentes React.
+
+### Backend ###
+
+Firebase: Plataforma para desenvolvimento de aplicativos móveis e web.
+Mongoose: Biblioteca para modelar dados de objetos MongoDB em Node.js.
+JSON Server: Ferramenta para criação de APIs REST com um arquivo JSON.
+
+### Ferramentas e Utilitários ###
+
+Vite: Ferramenta para desenvolvimento, build e preview de aplicações.
+Axios: Biblioteca para fazer requisições HTTP.
+Dotenv: Módulo para carregar variáveis de ambiente de um arquivo .env.
+UUID: Gerador de identificadores únicos universais.
