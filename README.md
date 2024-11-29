@@ -1,5 +1,5 @@
 # TaskList #
-## Esta aplicação permite aos usuários criar, visualizar, editar e deletar tarefas. ##
+## Esta aplicação é focada em criar, visualizar, editar e deletar tarefas, auxiliando na organização pessoal e profissional. ##
 
 ### Tecnologias Utilizadas ###
 
