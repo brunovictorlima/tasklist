@@ -23,3 +23,7 @@
 - Axios: Biblioteca para fazer requisições HTTP.
 - Dotenv: Módulo para carregar variáveis de ambiente de um arquivo .env.
 - UUID: Gerador de identificadores únicos universais.
+
+![Tasklist iPhone 16 Pro](https://github.com/user-attachments/assets/f1961c1f-9e78-452a-add7-ee096d4e28e7)
+![Tasklist MacBook #01](https://github.com/user-attachments/assets/6886ad25-6db8-4614-86be-383368380eaa)
+
